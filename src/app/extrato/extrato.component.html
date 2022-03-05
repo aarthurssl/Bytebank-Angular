@@ -4,7 +4,7 @@
     <th class="tabela__cabecalho__conteudo">Destino</th>
     <th class="tabela__cabecalho__conteudo">Valor</th>
   </thead>
-  <tbody>
+  <tbody *ngIf="transferencias?.length > 0; else listaVazia">
     <tr class="tabela_linha" *ngFor="let transferencia of transferencias">
       <!-- Interpolação | DatePipe-->
       <td class="tabela__conteudo">{{transferencia?.data  | date:'short'}}</td>
@@ -13,4 +13,10 @@
     </tr>
   </tbody>
 </table>
+<!-- Tag do Angular que não é redenderizada por padrão, você pode definir quando ele
+     sera redenrizado a partir de uma instrução
+-->
+<ng-template #listaVazia>
+  <p>Nenhuma operação realizada!</p>
+</ng-template>
 
