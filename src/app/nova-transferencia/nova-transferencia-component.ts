@@ -19,7 +19,7 @@ export class NovaTransferenciaComponent {
   transferir() {
     console.log('Solicitada nova transferência');
     const valorEmitir = {valor: this.valor, destino: this.destino};
-    //emit é usado para emitir um evendo customizado
+    //emit é usado para emitir um evento customizado
     this.aoTransferir.emit(valorEmitir);
     this.limparCampos();
   }
